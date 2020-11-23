@@ -88,3 +88,79 @@ After you submit the completed project, we will schedule a follow-up code-review
 | :------------------- | :--------------------------- |
 | `npm run format:fix` | format files with "prettier" |
 | `npm run test`       | execute tests with "jest"    |
+
+## Example Request
+
+- For Search on base of zipcode full or partial
+
+```json
+{
+	"event": {
+	  "queryStringParameters": {
+		"zipcode" : "0100"
+        }
+    }
+}
+```
+
+- For Search on base of cityname full or partial case (insensitive search)
+
+```json
+{
+	"event": {
+	  "queryStringParameters": {
+		"cityName" : "amHerst"
+		}
+	}
+}
+```
+
+- For Search of closest city to given latitude and longitude
+
+```json
+{
+	"event": {
+	  "queryStringParameters": {
+		"latitude" : "42.17",
+		"longitude": "-72.93"
+		}
+	}
+}
+
+```
+
+- For ffilter data on  base of other attributes (type, state, county, country, timezone, populationGreaterThan)
+
+```json
+{
+	"event": {
+	  "queryStringParameters": {
+		"type" : "standard"
+		}
+	}
+}
+```
+
+```json
+{
+	"event": {
+	  "queryStringParameters": {
+            "type" : "standard",
+		    "state" : "MA"
+		}
+	}
+}
+```
+
+```json
+{
+	"event": {
+	  "queryStringParameters": {
+            "type" : "standard",
+            "state" : "MA",
+            "populationGreaterThan" : 43688
+		}
+	}
+}
+```
+
